@@ -3,20 +3,28 @@ import { Link } from "react-router-dom";
 export default function Landing() {
   return (
     <div className="landing-shell">
-      <div className="landing-glow landing-glow--left"></div>
-      <div className="landing-glow landing-glow--right"></div>
+      <div className="landing-ambient landing-ambient--left"></div>
+      <div className="landing-ambient landing-ambient--right"></div>
+      <div className="landing-ambient landing-ambient--bottom"></div>
       <div className="landing-grid"></div>
-      <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 text-center">
-        <div className="landing-hero">
+      <div className="landing-orbit"></div>
+      <div className="landing-orbit landing-orbit--inner"></div>
+      <div className="landing-stage">
+        <div className="landing-hero font-landing">
+          <span className="landing-eyebrow">Read-only Kubernetes visualizer</span>
           <div className="landing-wordmark" role="img" aria-label="KUBI"></div>
-          <div className="landing-underline"></div>
-          <Link
-            to="/app"
-            className="landing-cta"
-          >
-            Test MVP
-          </Link>
+          <p className="landing-copy">
+            KUBI maps workloads, ports, and policies into a single calm view—built to help operators
+            understand cluster reality without changing it.
+          </p>
+          <div className="landing-actions">
+            <Link to="/app" className="landing-cta">
+              Test MVP
+            </Link>
+            <span className="landing-meta">Local-first • No writes • Secure defaults</span>
+          </div>
         </div>
+        <div className="landing-base"></div>
       </div>
     </div>
   );
