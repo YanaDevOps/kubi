@@ -18,12 +18,21 @@ npm install
 npm run dev
 ```
 
+Open:
+- Landing: `http://127.0.0.1:5173/`
+- App: `http://127.0.0.1:5173/app`
+- Backend: `http://127.0.0.1:17890/healthz`
+
 ## Build single binary
 
 ```sh
 ./scripts/build.sh
 GOTOOLCHAIN=local /usr/local/go/bin/go build -o bin/kubi ./cmd/kubi
 ```
+
+Open (embedded):
+- Landing: `http://127.0.0.1:17890/`
+- App: `http://127.0.0.1:17890/app`
 
 ## Configuration
 

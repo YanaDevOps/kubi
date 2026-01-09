@@ -1,9 +1,10 @@
 import { ReactNode } from "react";
+import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 
 type LayoutProps = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export default function Layout({ children }: LayoutProps) {
@@ -15,7 +16,7 @@ export default function Layout({ children }: LayoutProps) {
           <Topbar />
           <main className="px-8 py-6">
             <div className="rounded-2xl bg-slatey-900/70 shadow-panel border border-slatey-800/80 p-6">
-              {children}
+              {children ?? <Outlet />}
             </div>
           </main>
         </div>
