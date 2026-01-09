@@ -159,11 +159,11 @@ pre {
 .nav-group-active {
   position: relative;
   background: radial-gradient(
-    circle at 95% 95%,
+    circle at 98% 98%,
     rgba(46, 230, 166, 0.28) 0%,
-    rgba(46, 230, 166, 0.12) 45%,
-    rgba(46, 230, 166, 0.04) 70%,
-    rgba(46, 230, 166, 0) 100%
+    rgba(46, 230, 166, 0.12) 30%,
+    rgba(46, 230, 166, 0.04) 50%,
+    rgba(46, 230, 166, 0) 68%
   );
   color: #f5f7ff;
   border: 1px solid transparent;
@@ -232,14 +232,14 @@ pre {
     radial-gradient(
       circle at top left,
       rgba(255, 255, 255, 0.9) 0%,
-      rgba(255, 255, 255, 0.4) 25%,
-      rgba(255, 255, 255, 0) 60%
+      rgba(255, 255, 255, 0.4) 18%,
+      rgba(255, 255, 255, 0) 45%
     ),
     radial-gradient(
       circle at bottom right,
       rgba(255, 255, 255, 0.9) 0%,
-      rgba(255, 255, 255, 0.4) 25%,
-      rgba(255, 255, 255, 0) 60%
+      rgba(255, 255, 255, 0.4) 18%,
+      rgba(255, 255, 255, 0) 45%
     );
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
