@@ -118,11 +118,11 @@ export default function Sidebar() {
         collapsed ? "w-20" : "w-64"
       }`}
     >
-      <div className="mb-6 flex items-center justify-between">
+      <div className={`mb-8 flex items-center justify-between ${collapsed ? "" : "pt-2"}`}>
         <img
           src={collapsed ? "/branding/logo-mark.png" : "/branding/logo-lockup.png"}
           alt="KUBI"
-          className="h-8 w-auto"
+          className={collapsed ? "h-8 w-auto" : "h-12 w-auto drop-shadow-[0_0_18px_rgba(53,210,171,0.2)]"}
         />
         <button
           className="rounded-lg border border-slatey-800 p-2 text-slatey-400 hover:text-slate-100"
@@ -195,6 +195,7 @@ export default function Sidebar() {
                       <NavLink
                         key={item.to}
                         to={item.to}
+                        end={item.to === "/app"}
                         className={({ isActive }) =>
                           [
                             "flex items-center gap-3 rounded-lg border-l-2 px-3 py-2 transition",

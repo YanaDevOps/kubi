@@ -29,12 +29,64 @@ pre {
   font-family: "Space Grotesk", "Rubik", system-ui, sans-serif;
 }
 
+.landing-shell {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #1b1f24 0%, #0f1113 45%, #0b0d0f 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(transparent 95%, rgba(255, 255, 255, 0.04) 100%),
+    linear-gradient(90deg, transparent 95%, rgba(255, 255, 255, 0.04) 100%);
+  background-size: 80px 80px;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.landing-glow {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 999px;
+  filter: blur(80px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.landing-glow--left {
+  top: -120px;
+  left: -120px;
+  background: radial-gradient(circle, rgba(53, 210, 171, 0.4), transparent 65%);
+}
+
+.landing-glow--right {
+  bottom: -160px;
+  right: -140px;
+  background: radial-gradient(circle, rgba(110, 124, 128, 0.4), transparent 70%);
+}
+
+.landing-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 80px 48px;
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(20, 23, 26, 0.85) 0%, rgba(15, 17, 19, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+}
+
 .landing-wordmark {
-  width: min(460px, 80vw);
-  height: clamp(80px, 12vw, 140px);
-  background: linear-gradient(110deg, #1f2a2a 0%, #35d2ab 45%, #a7b3b1 70%, #35d2ab 100%);
+  width: min(560px, 88vw);
+  height: clamp(120px, 16vw, 180px);
+  background: linear-gradient(110deg, #1f2a2a 0%, #35d2ab 40%, #a7b3b1 70%, #35d2ab 100%);
   background-size: 200% 100%;
-  animation: shimmer 10s ease-in-out infinite;
+  animation: shimmer 14s ease-in-out infinite;
   -webkit-mask-image: url("/branding/wordmark.png");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -43,7 +95,32 @@ pre {
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
-  filter: drop-shadow(0 0 18px rgba(53, 210, 171, 0.25));
+  filter: drop-shadow(0 0 26px rgba(53, 210, 171, 0.3));
+}
+
+.landing-underline {
+  width: min(220px, 50vw);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(53, 210, 171, 0.6), transparent);
+}
+
+.landing-cta {
+  border-radius: 16px;
+  border: 1px solid rgba(53, 210, 171, 0.35);
+  background: rgba(53, 210, 171, 0.16);
+  padding: 14px 36px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: #c8f1e4;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.landing-cta:hover {
+  background: rgba(53, 210, 171, 0.22);
+  border-color: rgba(53, 210, 171, 0.5);
+  color: #e7fff7;
 }
 
 @keyframes shimmer {
