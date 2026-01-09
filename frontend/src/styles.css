@@ -140,10 +140,14 @@ pre {
 }
 
 .nav-group-button {
-  color: #aeb7c0;
+  height: 48px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  color: rgba(245, 247, 255, 0.55);
   background: transparent;
-  border-color: transparent;
+  border: 1px solid transparent;
   box-shadow: none;
+  backdrop-filter: blur(12px);
 }
 
 .nav-group-button:hover {
@@ -153,22 +157,26 @@ pre {
 }
 
 .nav-group-active {
-  background: linear-gradient(
-    90deg,
-    rgba(53, 210, 171, 0.16),
-    rgba(79, 124, 255, 0.12),
-    rgba(139, 92, 246, 0.1),
-    rgba(255, 255, 255, 0)
-  );
-  color: #e8fbf6;
-  border-color: rgba(255, 255, 255, 0.16);
+  position: relative;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(46, 230, 166, 0.16) 55%,
+      rgba(58, 123, 255, 0.14) 78%,
+      rgba(138, 70, 255, 0.12) 100%
+    ),
+    rgba(12, 14, 20, 0.35);
+  color: #f5f7ff;
+  border: 1px solid transparent;
   box-shadow:
-    inset 1px 1px 0 rgba(255, 255, 255, 0.24),
-    inset -1px -1px 0 rgba(255, 255, 255, 0.08);
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -10px 20px rgba(0, 0, 0, 0.35),
+    0 0 24px rgba(58, 123, 255, 0.08);
 }
 
 .nav-group-active .nav-icon {
-  color: #35d2ab;
+  color: #f5f7ff;
   filter: none;
 }
 
@@ -187,11 +195,14 @@ pre {
 }
 
 .nav-item {
-  color: #9aa3ab;
-  background: transparent;
-  border-color: transparent;
-  box-shadow: none;
+  height: 48px;
+  padding: 12px 14px;
   border-radius: 16px;
+  color: rgba(245, 247, 255, 0.55);
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  backdrop-filter: blur(12px);
 }
 
 .nav-item:hover {
@@ -201,27 +212,55 @@ pre {
 }
 
 .nav-item-active {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(53, 210, 171, 0.18) 55%,
-    rgba(79, 124, 255, 0.14) 78%,
-    rgba(139, 92, 246, 0.12) 100%
-  );
-  color: var(--kubi-teal);
-  border-color: rgba(255, 255, 255, 0.16);
+  position: relative;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(46, 230, 166, 0.16) 55%,
+      rgba(58, 123, 255, 0.14) 78%,
+      rgba(138, 70, 255, 0.12) 100%
+    ),
+    rgba(12, 14, 20, 0.35);
+  color: #f5f7ff;
+  border: 1px solid transparent;
   box-shadow:
-    inset 1px 1px 0 rgba(255, 255, 255, 0.24),
-    inset -1px -1px 0 rgba(255, 255, 255, 0.08);
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -10px 20px rgba(0, 0, 0, 0.35),
+    0 0 24px rgba(58, 123, 255, 0.08);
 }
 
 .nav-item-active .nav-icon {
-  color: var(--kubi-teal);
+  color: #f5f7ff;
   filter: none;
 }
 
 .nav-item-active span {
   text-shadow: none;
+}
+
+.nav-item-active::before,
+.nav-group-active::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.7), transparent 20%),
+    radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.55), transparent 20%),
+    linear-gradient(
+      90deg,
+      rgba(46, 230, 166, 0.18),
+      rgba(58, 123, 255, 0.14),
+      rgba(138, 70, 255, 0.12)
+    );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .landing-shell {
@@ -237,9 +276,9 @@ pre {
   height: 480px;
   border-radius: 999px;
   filter: blur(120px);
-  opacity: 0.18;
+  opacity: 0.26;
   mix-blend-mode: screen;
-  animation: blob-drift 16s ease-in-out infinite;
+  animation: blob-drift 13s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -281,7 +320,7 @@ pre {
   height: 720px;
   border-radius: 999px;
   filter: blur(110px);
-  opacity: 0.35;
+  opacity: 0.45;
   pointer-events: none;
 }
 
@@ -320,7 +359,7 @@ pre {
 }
 
 .landing-logo--mark {
-  height: clamp(64px, 7vw, 96px);
+  height: clamp(52px, 6vw, 82px);
   width: auto;
 }
 
@@ -406,7 +445,7 @@ pre {
   }
 
   .landing-logo--mark {
-    height: clamp(54px, 14vw, 80px);
+    height: clamp(46px, 12vw, 70px);
   }
 
   .landing-descriptor {
