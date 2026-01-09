@@ -45,7 +45,7 @@ pre {
 .kubi-topbar {
   background: rgba(14, 16, 19, 0.92);
   backdrop-filter: blur(8px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), inset 0 -10px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .kubi-panel {
@@ -89,40 +89,54 @@ pre {
 }
 
 .kubi-button {
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(16, 19, 22, 0.9);
-  color: #c7d0d8;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(14, 17, 20, 0.9);
+  color: #b9c2cb;
   font-weight: 500;
-  transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), inset 0 -8px 14px rgba(0, 0, 0, 0.45);
+  transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease, border-color 160ms ease, transform 120ms ease;
 }
 
 .kubi-button:hover {
-  color: #f8fafc;
-  border-color: rgba(79, 124, 255, 0.4);
-  box-shadow: 0 0 18px rgba(79, 124, 255, 0.2);
+  color: #e2e8f0;
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(20, 24, 28, 0.92);
+}
+
+.kubi-button:active {
+  background: rgba(24, 28, 32, 0.96);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(1px);
 }
 
 .kubi-button-primary {
-  border-radius: 999px;
-  border: 1px solid rgba(79, 124, 255, 0.5);
-  background: var(--kubi-gradient);
-  color: #f1f5f9;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(17, 20, 24, 0.95);
+  color: #e2e8f0;
   font-weight: 600;
-  box-shadow: 0 0 26px rgba(79, 124, 255, 0.35);
-  transition: box-shadow 160ms ease, transform 160ms ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 -10px 18px rgba(0, 0, 0, 0.5);
+  transition: background 160ms ease, box-shadow 160ms ease, border-color 160ms ease, transform 120ms ease;
 }
 
 .kubi-button-primary:hover {
-  box-shadow: 0 0 40px rgba(79, 124, 255, 0.5);
-  transform: translateY(-1px);
+  background: rgba(22, 26, 30, 0.98);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.kubi-button-primary:active {
+  background: rgba(26, 30, 34, 0.98);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(1px);
 }
 
 .kubi-button-active {
   border-color: rgba(79, 124, 255, 0.5);
-  background: linear-gradient(90deg, rgba(53, 210, 171, 0.2), rgba(79, 124, 255, 0.18), rgba(139, 92, 246, 0.15));
+  background: linear-gradient(90deg, rgba(53, 210, 171, 0.18), rgba(79, 124, 255, 0.16), rgba(139, 92, 246, 0.12));
   color: #f1f5f9;
-  box-shadow: 0 0 16px rgba(79, 124, 255, 0.25);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 0 12px rgba(79, 124, 255, 0.18);
+  transform: translateY(0);
 }
 
 .nav-group-button {
@@ -151,7 +165,7 @@ pre {
 }
 
 .kubi-sidebar {
-  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.04), inset 0 0 24px rgba(0, 0, 0, 0.55);
+  box-shadow: 8px 0 24px rgba(0, 0, 0, 0.35), 1px 0 0 rgba(255, 255, 255, 0.04);
 }
 
 .sidebar-logo {
@@ -200,6 +214,39 @@ pre {
   overflow: hidden;
 }
 
+.landing-blob {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 999px;
+  filter: blur(120px);
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  animation: blob-drift 36s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.landing-blob--teal {
+  top: 10%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(53, 210, 171, 0.35), transparent 65%);
+  animation-delay: -12s;
+}
+
+.landing-blob--blue {
+  top: 55%;
+  right: -12%;
+  background: radial-gradient(circle, rgba(79, 124, 255, 0.35), transparent 65%);
+  animation-delay: -4s;
+}
+
+.landing-blob--violet {
+  bottom: -10%;
+  left: 20%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.32), transparent 65%);
+  animation-delay: -20s;
+}
+
 .landing-grid {
   position: absolute;
   inset: 0;
@@ -244,9 +291,8 @@ pre {
 }
 
 .landing-logo {
-  height: 52px;
+  height: clamp(88px, 10vw, 140px);
   width: auto;
-  filter: drop-shadow(0 0 18px rgba(100, 140, 220, 0.35));
 }
 
 .landing-hero {
@@ -267,14 +313,14 @@ pre {
 }
 
 .landing-descriptor {
-  font-size: 14px;
+  font-size: clamp(18px, 2.4vw, 28px);
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: rgba(205, 214, 220, 0.7);
 }
 
 .landing-title {
-  font-size: clamp(72px, 16vw, 150px);
+  font-size: clamp(160px, 28vw, 360px);
   letter-spacing: 0.12em;
   margin: 0;
   background: linear-gradient(120deg, #35d2ab 0%, #4f7cff 50%, #8b5cf6 100%);
@@ -287,10 +333,11 @@ pre {
 }
 
 .landing-copy {
-  max-width: 560px;
-  font-size: 16px;
-  line-height: 1.6;
+  max-width: 680px;
+  font-size: clamp(18px, 2.2vw, 28px);
+  line-height: 1.7;
   color: rgba(212, 221, 228, 0.72);
+  font-family: "Rubik", system-ui, sans-serif;
 }
 
 .landing-button {
@@ -305,7 +352,7 @@ pre {
   align-items: center;
   justify-content: center;
   margin-top: 8px;
-  padding: 14px 44px;
+  padding: 16px 52px;
   border-radius: 999px;
   border: 1px solid rgba(79, 124, 255, 0.45);
   background: linear-gradient(120deg, rgba(53, 210, 171, 0.7), rgba(79, 124, 255, 0.7), rgba(139, 92, 246, 0.7));
@@ -313,7 +360,7 @@ pre {
   animation: shimmer 22s ease-in-out infinite;
   color: #effbff;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 13px;
   box-shadow: 0 0 30px rgba(79, 124, 255, 0.45);
   transition: box-shadow 180ms ease, transform 180ms ease;
 }
@@ -325,15 +372,30 @@ pre {
 
 @media (max-width: 768px) {
   .landing-logo {
-    height: 44px;
+    height: clamp(64px, 14vw, 96px);
   }
 
   .landing-descriptor {
-    font-size: 12px;
+    font-size: clamp(14px, 4vw, 18px);
   }
 
   .landing-header {
     padding: 28px 24px 0;
+  }
+}
+
+@keyframes blob-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(8%, -6%) scale(1.12);
+    opacity: 0.42;
+  }
+  100% {
+    transform: translate(-6%, 8%) scale(0.96);
+    opacity: 0.32;
   }
 }
 

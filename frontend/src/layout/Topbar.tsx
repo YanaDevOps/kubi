@@ -77,7 +77,7 @@ export default function Topbar() {
           onChange={setLabelSelector}
           placeholder="Label selector (app=foo)"
         />
-        <button className="kubi-button-primary px-4 py-2 text-xs">
+        <button className="kubi-button px-4 py-2 text-xs">
           Settings
         </button>
       </div>
