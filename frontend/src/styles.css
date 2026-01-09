@@ -231,7 +231,7 @@ pre {
   filter: blur(120px);
   opacity: 0.18;
   mix-blend-mode: screen;
-  animation: blob-drift 32s ease-in-out infinite;
+  animation: blob-drift 26s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -299,8 +299,20 @@ pre {
   padding: 32px 40px 0;
 }
 
+.landing-header--centered {
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  padding: 24px 0 0;
+}
+
 .landing-logo {
   height: clamp(64px, 7vw, 96px);
+  width: auto;
+}
+
+.landing-logo--mark {
+  height: clamp(72px, 8vw, 110px);
   width: auto;
 }
 
@@ -334,7 +346,7 @@ pre {
   margin: 0;
   background: linear-gradient(120deg, #35d2ab 0%, #4f7cff 50%, #8b5cf6 100%);
   background-size: 200% 100%;
-  animation: shimmer 12s ease-in-out infinite, title-glow 8s ease-in-out infinite;
+  animation: shimmer 9s ease-in-out infinite, title-glow 6s ease-in-out infinite;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -361,7 +373,7 @@ pre {
   align-items: center;
   justify-content: center;
   margin-top: 8px;
-  padding: 14px 40px;
+  padding: 16px 52px;
   border-radius: 999px;
   border: 1px solid rgba(79, 124, 255, 0.45);
   background: linear-gradient(120deg, rgba(53, 210, 171, 0.7), rgba(79, 124, 255, 0.7), rgba(139, 92, 246, 0.7));
@@ -369,7 +381,8 @@ pre {
   animation: shimmer 22s ease-in-out infinite;
   color: #effbff;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 700;
   box-shadow: 0 0 30px rgba(79, 124, 255, 0.45);
   transition: box-shadow 180ms ease, transform 180ms ease;
 }
@@ -384,12 +397,20 @@ pre {
     height: clamp(52px, 12vw, 76px);
   }
 
+  .landing-logo--mark {
+    height: clamp(60px, 14vw, 88px);
+  }
+
   .landing-descriptor {
     font-size: clamp(12px, 4vw, 16px);
   }
 
   .landing-header {
     padding: 28px 24px 0;
+  }
+
+  .landing-header--centered {
+    padding: 20px 0 0;
   }
 }
 

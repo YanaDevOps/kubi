@@ -9,11 +9,11 @@ export default function Landing() {
       <div className="landing-ambient landing-ambient--left"></div>
       <div className="landing-ambient landing-ambient--right"></div>
       <div className="landing-grid"></div>
-      <header className="landing-header">
+      <header className="landing-header landing-header--centered">
         <img
-          src="/branding/logo-lockup.png"
+          src="/branding/icon-512.png"
           alt="KUBI"
-          className="landing-logo"
+          className="landing-logo landing-logo--mark"
         />
       </header>
       <main className="landing-hero">
