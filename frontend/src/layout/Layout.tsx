@@ -17,7 +17,7 @@ export default function Layout({ children }: LayoutProps) {
         <div className="relative">
           <Sidebar collapsed={collapsed} />
           <button
-            className="absolute top-6 -right-4 rounded-full border border-slatey-800/80 bg-slatey-900/90 p-1.5 text-slatey-500 shadow-panel transition hover:text-slate-100"
+            className="absolute top-6 -right-4 rounded-full border border-slatey-800/80 bg-slatey-900/90 p-1.5 text-slatey-300 shadow-panel transition hover:text-slate-100"
             onClick={() => setCollapsed((prev) => !prev)}
             aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
           >

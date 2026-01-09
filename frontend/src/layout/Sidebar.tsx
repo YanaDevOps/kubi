@@ -115,7 +115,7 @@ export default function Sidebar({ collapsed }: SidebarProps) {
 
   return (
     <aside
-      className={`min-h-screen border-r border-slatey-800/80 bg-slatey-900/95 px-4 py-6 transition-all ${
+      className={`kubi-sidebar min-h-screen border-r border-slatey-800/80 bg-slatey-900/95 px-4 py-6 transition-all ${
         collapsed ? "w-20" : "w-64"
       }`}
     >
@@ -123,11 +123,7 @@ export default function Sidebar({ collapsed }: SidebarProps) {
         <img
           src={collapsed ? "/branding/logo-mark.png" : "/branding/logo-lockup.png"}
           alt="KUBI"
-          className={
-            collapsed
-              ? "h-9 w-auto"
-              : "h-16 w-auto drop-shadow-[0_0_20px_rgba(53,210,171,0.25)]"
-          }
+          className={collapsed ? "sidebar-logo-collapsed" : "sidebar-logo"}
         />
       </div>
 
