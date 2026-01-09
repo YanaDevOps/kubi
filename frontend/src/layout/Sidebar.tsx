@@ -137,7 +137,7 @@ export default function Sidebar({ collapsed }: SidebarProps) {
             return (
               <div key={group.id} className="relative group">
                 <button
-                  className={`nav-group-button flex w-full items-center justify-center rounded-lg border border-slatey-800/60 px-3 py-3 transition ${
+                  className={`nav-group-button flex w-full items-center justify-center rounded-lg transition ${
                     isActiveGroup ? "nav-group-active border-accent-info/70 text-accent-info" : ""
                   }`}
                 >
@@ -160,7 +160,7 @@ export default function Sidebar({ collapsed }: SidebarProps) {
           return (
             <div key={group.id} className="space-y-2">
               <button
-                className={`nav-group-button flex w-full items-center justify-between rounded-lg border border-slatey-800/60 px-3 py-3 text-left transition ${
+                className={`nav-group-button flex w-full items-center justify-between rounded-lg text-left transition ${
                   isActiveGroup ? "nav-group-active border-accent-info/70 text-slate-100" : ""
                 }`}
                 onClick={() =>
@@ -188,8 +188,8 @@ export default function Sidebar({ collapsed }: SidebarProps) {
                         end={item.to === "/app"}
                         className={({ isActive }) =>
                           [
-                            "nav-item flex items-center gap-3 rounded-lg border-l-2 border-transparent px-5 py-3 transition",
-                            isActive ? "nav-item-active border-accent-info" : "",
+                            "nav-item flex items-center gap-3 rounded-lg transition",
+                            isActive ? "nav-item-active" : "",
                           ].join(" ")
                         }
                       >

@@ -162,9 +162,9 @@ pre {
     linear-gradient(
       135deg,
       rgba(255, 255, 255, 0) 0%,
-      rgba(46, 230, 166, 0.16) 55%,
-      rgba(58, 123, 255, 0.14) 78%,
-      rgba(138, 70, 255, 0.12) 100%
+      rgba(46, 230, 166, 0.1) 70%,
+      rgba(58, 123, 255, 0.14) 88%,
+      rgba(138, 70, 255, 0.16) 100%
     ),
     rgba(12, 14, 20, 0.35);
   color: #f5f7ff;
@@ -212,34 +212,21 @@ pre {
 }
 
 .nav-item-active {
-  position: relative;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(46, 230, 166, 0.16) 55%,
-      rgba(58, 123, 255, 0.14) 78%,
-      rgba(138, 70, 255, 0.12) 100%
-    ),
-    rgba(12, 14, 20, 0.35);
-  color: #f5f7ff;
+  background: transparent;
+  color: var(--kubi-teal);
   border: 1px solid transparent;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    inset 0 -10px 20px rgba(0, 0, 0, 0.35),
-    0 0 24px rgba(58, 123, 255, 0.08);
+  box-shadow: none;
 }
 
 .nav-item-active .nav-icon {
-  color: #f5f7ff;
-  filter: none;
+  color: var(--kubi-teal);
+  filter: drop-shadow(0 0 6px rgba(58, 123, 255, 0.25));
 }
 
 .nav-item-active span {
-  text-shadow: none;
+  text-shadow: 0 0 8px rgba(58, 123, 255, 0.3);
 }
 
-.nav-item-active::before,
 .nav-group-active::before {
   content: "";
   position: absolute;
