@@ -342,11 +342,11 @@ pre {
   color: #0f172a;
   background: radial-gradient(
     circle at 100% 192%,
-    rgba(46, 230, 166, 0.18) 18%,
-    rgba(46, 230, 166, 0.1) 30%,
-    rgba(46, 230, 166, 0.05) 44%,
-    rgba(46, 230, 166, 0.02) 56%,
-    rgba(46, 230, 166, 0) 68%
+    rgba(2, 255, 167, 0.38) 18%,
+    rgba(0, 255, 166, 0.3) 30%,
+    rgba(0, 255, 166, 0.27) 44%,
+    rgba(245, 245, 245, 1) 56%,
+    rgba(245, 245, 245, 1) 68%
   );
 }
 
@@ -354,23 +354,40 @@ pre {
   color: #0f172a;
 }
 
+[data-theme="light"] .nav-item-active {
+  color: #2ee6a6;
+}
+
+[data-theme="light"] .nav-item-active .nav-icon {
+  color: #2ee6a6;
+  filter: drop-shadow(0 0 6px rgba(46, 230, 166, 0.35));
+}
+
+[data-theme="light"] .nav-item-active span {
+  text-shadow: 0 0 8px rgba(46, 230, 166, 0.35);
+}
+
 [data-theme="light"] .nav-group-active::before {
   background:
     radial-gradient(
       circle at top left,
-      rgba(255, 255, 255, 0.75) 0%,
-      rgba(255, 255, 255, 0.28) 6%,
-      rgba(255, 255, 255, 0.12) 14%,
-      rgba(255, 255, 255, 0.04) 22%,
-      rgba(255, 255, 255, 0) 32%
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(253, 253, 253, 0.85) 6%,
+      rgba(236, 236, 236, 0.72) 14%,
+      rgba(57, 57, 57, 0.26) 22%,
+      rgba(231, 231, 231, 0.24) 32%,
+      rgba(231, 231, 231, 0.08) 40%,
+      rgba(231, 231, 231, 0) 48%
     ),
     radial-gradient(
       circle at bottom right,
-      rgba(255, 255, 255, 0.75) 0%,
-      rgba(255, 255, 255, 0.28) 6%,
-      rgba(255, 255, 255, 0.12) 14%,
-      rgba(255, 255, 255, 0.04) 22%,
-      rgba(255, 255, 255, 0) 32%
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(253, 253, 253, 0.85) 6%,
+      rgba(236, 236, 236, 0.72) 14%,
+      rgba(57, 57, 57, 0.26) 22%,
+      rgba(231, 231, 231, 0.24) 32%,
+      rgba(231, 231, 231, 0.08) 40%,
+      rgba(231, 231, 231, 0) 48%
     );
 }
 
