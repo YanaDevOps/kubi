@@ -89,15 +89,17 @@ export default function Sidebar({ collapsed }: SidebarProps) {
   const location = useLocation();
   const [darkMode, setDarkMode] = useState(true);
 
-  const [openGroups, setOpenGroups] = useState<string[]>(() => {
-    if (typeof window === "undefined") return ["cluster"];
+  const [openGroupId, setOpenGroupId] = useState<string>(() => {
+    if (typeof window === "undefined") return "cluster";
     try {
       const value = window.localStorage.getItem(STORAGE_KEY);
-      if (!value) return ["cluster"];
+      if (!value) return "cluster";
       const parsed = JSON.parse(value);
-      return Array.isArray(parsed) ? parsed : ["cluster"];
+      if (typeof parsed === "string" && parsed.length > 0) return parsed;
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed[0];
+      return "cluster";
     } catch {
-      return ["cluster"];
+      return "cluster";
     }
   });
 
@@ -107,13 +109,13 @@ export default function Sidebar({ collapsed }: SidebarProps) {
 
   useEffect(() => {
     if (!activeGroup) return;
-    setOpenGroups((prev) => (prev.includes(activeGroup.id) ? prev : [...prev, activeGroup.id]));
-  }, [activeGroup]);
+    setOpenGroupId(activeGroup.id);
+  }, [activeGroup, setOpenGroupId]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(openGroups));
-  }, [openGroups]);
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(openGroupId));
+  }, [openGroupId]);
 
   return (
     <aside
@@ -133,7 +135,7 @@ export default function Sidebar({ collapsed }: SidebarProps) {
         {groupDefs.map((group) => {
           const Icon = group.icon;
           const isActiveGroup = activeGroup?.id === group.id;
-          const isOpen = openGroups.includes(group.id);
+          const isOpen = openGroupId === group.id;
 
           if (collapsed) {
             return (
@@ -165,13 +167,7 @@ export default function Sidebar({ collapsed }: SidebarProps) {
                 className={`nav-group-button flex w-full items-center justify-between rounded-lg text-left transition ${
                   isActiveGroup ? "nav-group-active border-accent-info/70 text-slate-100" : ""
                 }`}
-                onClick={() =>
-                  setOpenGroups((prev) =>
-                    prev.includes(group.id)
-                      ? prev.filter((item) => item !== group.id)
-                      : [...prev, group.id]
-                  )
-                }
+                onClick={() => setOpenGroupId(group.id)}
               >
                 <span className="flex items-center gap-3">
                   <Icon className="nav-icon h-4 w-4" />
