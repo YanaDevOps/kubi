@@ -9,6 +9,7 @@ import {
   Database,
   KeyRound,
   LayoutDashboard,
+  Moon,
   Network,
   Plug,
   Route,
@@ -86,6 +87,7 @@ type SidebarProps = {
 
 export default function Sidebar({ collapsed }: SidebarProps) {
   const location = useLocation();
+  const [darkMode, setDarkMode] = useState(true);
 
   const [openGroups, setOpenGroups] = useState<string[]>(() => {
     if (typeof window === "undefined") return ["cluster"];
@@ -115,7 +117,7 @@ export default function Sidebar({ collapsed }: SidebarProps) {
 
   return (
     <aside
-      className={`kubi-sidebar min-h-screen border-r border-slatey-800/80 bg-slatey-900/95 px-4 py-6 transition-all ${
+      className={`kubi-sidebar flex min-h-screen flex-col border-r border-slatey-800/80 bg-slatey-900/95 px-4 py-6 transition-all ${
         collapsed ? "w-20" : "w-64"
       }`}
     >
@@ -204,6 +206,37 @@ export default function Sidebar({ collapsed }: SidebarProps) {
           );
         })}
       </nav>
+      <div className={`mt-auto pt-6 ${collapsed ? "flex justify-center" : ""}`}>
+        <div
+          className={`flex items-center gap-3 text-sm text-slatey-300 ${
+            collapsed ? "justify-center" : ""
+          }`}
+        >
+          <Moon className="h-4 w-4" />
+          {!collapsed ? <span>Dark Mode</span> : null}
+          <div
+            role="switch"
+            aria-checked={darkMode}
+            tabIndex={0}
+            className={`relative h-5 w-10 cursor-pointer rounded-full transition ${
+              darkMode ? "bg-[#2EE6A6]/70" : "bg-white/15"
+            } ${collapsed ? "hidden" : ""}`}
+            onClick={() => setDarkMode((prev) => !prev)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                setDarkMode((prev) => !prev);
+              }
+            }}
+          >
+            <span
+              className={`absolute top-0.5 h-4 w-4 rounded-full bg-slatey-900 transition ${
+                darkMode ? "left-5" : "left-1"
+              }`}
+            />
+          </div>
+        </div>
+      </div>
     </aside>
   );
 }
