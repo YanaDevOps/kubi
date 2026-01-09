@@ -17,11 +17,11 @@ export default function Landing() {
         />
       </header>
       <main className="landing-hero">
-        <span className="landing-descriptor landing-font">
+        <span className="landing-descriptor">
           Read-only Kubernetes visualizer
         </span>
         <h1 className="landing-title landing-font">KUBI</h1>
-        <p className="landing-copy landing-font">
+        <p className="landing-copy">
           Calm visibility into workloads, ports, and policies—engineered for operators who
           need clarity without changes.
         </p>
