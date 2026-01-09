@@ -218,7 +218,7 @@ export default function Sidebar({ collapsed, darkMode, onToggleDarkMode }: Sideb
               role="switch"
               aria-checked={darkMode}
               tabIndex={0}
-              className={`relative h-5 w-10 cursor-pointer rounded-full transition ${
+              className={`kubi-darkmode-switch relative h-5 w-10 cursor-pointer rounded-full transition ${
                 darkMode ? "bg-[#2EE6A6]/70" : "bg-white/15"
               }`}
               onClick={onToggleDarkMode}
