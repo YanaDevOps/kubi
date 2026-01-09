@@ -205,7 +205,10 @@ pre {
   );
   color: var(--kubi-teal);
   border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: none;
+  box-shadow:
+    inset -18px -18px 24px rgba(0, 0, 0, 0.35),
+    inset 12px 12px 20px rgba(255, 255, 255, 0.08),
+    inset 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
 .nav-item-active .nav-icon {
@@ -232,7 +235,7 @@ pre {
   filter: blur(120px);
   opacity: 0.18;
   mix-blend-mode: screen;
-  animation: blob-drift 18s ease-in-out infinite;
+  animation: blob-drift 16s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -308,12 +311,12 @@ pre {
 }
 
 .landing-logo {
-  height: clamp(64px, 7vw, 96px);
+  height: clamp(56px, 6vw, 84px);
   width: auto;
 }
 
 .landing-logo--mark {
-  height: clamp(72px, 8vw, 110px);
+  height: clamp(64px, 7vw, 96px);
   width: auto;
 }
 
@@ -395,11 +398,11 @@ pre {
 
 @media (max-width: 768px) {
   .landing-logo {
-    height: clamp(52px, 12vw, 76px);
+    height: clamp(46px, 12vw, 68px);
   }
 
   .landing-logo--mark {
-    height: clamp(60px, 14vw, 88px);
+    height: clamp(54px, 14vw, 80px);
   }
 
   .landing-descriptor {
