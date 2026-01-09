@@ -119,7 +119,7 @@ export default function Sidebar({ collapsed }: SidebarProps) {
         collapsed ? "w-20" : "w-64"
       }`}
     >
-      <div className={`mb-6 flex items-center ${collapsed ? "justify-center" : "justify-start pt-1"}`}>
+      <div className={`mb-4 flex items-center ${collapsed ? "justify-center" : "justify-start pt-0"}`}>
         <img
           src={collapsed ? "/branding/logo-mark.png" : "/branding/logo-lockup.png"}
           alt="KUBI"
