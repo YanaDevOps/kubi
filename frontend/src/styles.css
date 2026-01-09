@@ -159,11 +159,14 @@ pre {
 .nav-group-active {
   position: relative;
   background: radial-gradient(
-    circle at 98% 98%,
-    rgba(46, 230, 166, 0.28) 0%,
-    rgba(46, 230, 166, 0.12) 30%,
-    rgba(46, 230, 166, 0.04) 50%,
-    rgba(46, 230, 166, 0) 68%
+    circle at 100% 192%,
+    rgba(46, 230, 166, 0.3) 18%,
+    rgba(46, 230, 166, 0.22) 28%,
+    rgba(46, 230, 166, 0.13) 38%,
+    rgba(46, 230, 166, 0.07) 48%,
+    rgba(46, 230, 166, 0.04) 56%,
+    rgba(46, 230, 166, 0.02) 62%,
+    rgba(46, 230, 166, 0) 70%
   );
   color: #f5f7ff;
   border: 1px solid transparent;
@@ -232,14 +235,20 @@ pre {
     radial-gradient(
       circle at top left,
       rgba(255, 255, 255, 0.9) 0%,
-      rgba(255, 255, 255, 0.4) 18%,
-      rgba(255, 255, 255, 0) 45%
+      rgba(255, 255, 255, 0.35) 6%,
+      rgba(255, 255, 255, 0.18) 14%,
+      rgba(255, 255, 255, 0.08) 22%,
+      rgba(255, 255, 255, 0.03) 30%,
+      rgba(255, 255, 255, 0) 38%
     ),
     radial-gradient(
       circle at bottom right,
       rgba(255, 255, 255, 0.9) 0%,
-      rgba(255, 255, 255, 0.4) 18%,
-      rgba(255, 255, 255, 0) 45%
+      rgba(255, 255, 255, 0.35) 6%,
+      rgba(255, 255, 255, 0.18) 14%,
+      rgba(255, 255, 255, 0.08) 22%,
+      rgba(255, 255, 255, 0.03) 30%,
+      rgba(255, 255, 255, 0) 38%
     );
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
