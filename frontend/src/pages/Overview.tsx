@@ -47,7 +47,7 @@ export default function Overview() {
         <StatCard label="Namespace" value={data.namespace || "all"} />
         <StatCard label="Read-only" value={data.readonly ? "Enabled" : "Unknown"} />
       </div>
-      <div className="rounded-xl border border-slatey-800/80 bg-slatey-900/80 p-5">
+      <div className="kubi-card rounded-xl p-5">
         <div className="text-xs uppercase tracking-[0.2em] text-slatey-500">System</div>
         <div className="mt-3 space-y-2 text-sm text-slatey-300">
           <div>Go runtime: {data.goVersion}</div>

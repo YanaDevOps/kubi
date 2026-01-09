@@ -67,11 +67,11 @@ export default function Ports() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <div className="rounded-full bg-slatey-800 px-3 py-1 text-xs text-slatey-300">
+          <div className="kubi-chip rounded-full px-3 py-1 text-xs text-slatey-300">
             Namespace: {namespace}
           </div>
           <button
-            className="rounded-lg border border-slatey-800 px-3 py-2 text-xs uppercase tracking-widest text-slatey-300 hover:text-slate-100"
+            className="kubi-button px-4 py-2 text-xs uppercase tracking-widest"
             onClick={() => downloadFile(JSON.stringify(data, null, 2), "ports.json", "application/json")}
           >
             Export JSON
@@ -83,7 +83,7 @@ export default function Ports() {
         <div className="flex items-center justify-between">
           <div className="text-xs uppercase tracking-widest text-slatey-500">Services</div>
           <button
-            className="rounded-lg border border-slatey-800 px-3 py-1 text-xs uppercase tracking-widest text-slatey-300 hover:text-slate-100"
+            className="kubi-button px-3 py-1 text-xs uppercase tracking-widest"
             onClick={() => {
               const csv = toCsv(
                 ["namespace", "service", "type", "port", "targetPort", "protocol", "nodePort", "externalIps", "podEndpoints"],
@@ -150,7 +150,7 @@ export default function Ports() {
         <div className="flex items-center justify-between">
           <div className="text-xs uppercase tracking-widest text-slatey-500">Container ports</div>
           <button
-            className="rounded-lg border border-slatey-800 px-3 py-1 text-xs uppercase tracking-widest text-slatey-300 hover:text-slate-100"
+            className="kubi-button px-3 py-1 text-xs uppercase tracking-widest"
             onClick={() => {
               const csv = toCsv(
                 ["namespace", "pod", "container", "port", "protocol", "hostPort"],
@@ -209,7 +209,7 @@ export default function Ports() {
         <div className="flex items-center justify-between">
           <div className="text-xs uppercase tracking-widest text-slatey-500">Ingress backends</div>
           <button
-            className="rounded-lg border border-slatey-800 px-3 py-1 text-xs uppercase tracking-widest text-slatey-300 hover:text-slate-100"
+            className="kubi-button px-3 py-1 text-xs uppercase tracking-widest"
             onClick={() => {
               const csv = toCsv(
                 ["namespace", "ingress", "host", "path", "service", "port"],

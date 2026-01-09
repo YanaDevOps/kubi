@@ -117,20 +117,20 @@ export default function Topology() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <div className="rounded-full bg-slatey-800 px-3 py-1 text-xs text-slatey-300">
+          <div className="kubi-chip rounded-full px-3 py-1 text-xs text-slatey-300">
             Namespace: {namespace}
           </div>
           <button
-            className={`rounded-lg border border-slatey-800 px-3 py-2 text-xs uppercase tracking-widest ${
-              view === "graph" ? "text-slate-100" : "text-slatey-400"
+            className={`kubi-button px-4 py-2 text-xs uppercase tracking-widest ${
+              view === "graph" ? "kubi-button-active" : ""
             }`}
             onClick={() => setView("graph")}
           >
             Graph
           </button>
           <button
-            className={`rounded-lg border border-slatey-800 px-3 py-2 text-xs uppercase tracking-widest ${
-              view === "table" ? "text-slate-100" : "text-slatey-400"
+            className={`kubi-button px-4 py-2 text-xs uppercase tracking-widest ${
+              view === "table" ? "kubi-button-active" : ""
             }`}
             onClick={() => setView("table")}
           >
@@ -145,10 +145,8 @@ export default function Topology() {
           return (
             <button
               key={kind}
-              className={`rounded-full border px-3 py-1 uppercase tracking-widest ${
-                active
-                  ? "border-accent-info text-accent-info"
-                  : "border-slatey-800 text-slatey-400"
+              className={`kubi-chip rounded-full px-3 py-1 uppercase tracking-widest text-slatey-400 ${
+                active ? "kubi-chip-active" : ""
               }`}
               onClick={() => {
                 setSelectedKinds((prev) =>

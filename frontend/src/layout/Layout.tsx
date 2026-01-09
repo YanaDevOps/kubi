@@ -24,10 +24,10 @@ export default function Layout({ children }: LayoutProps) {
             {collapsed ? <ChevronRight className="h-3.5 w-3.5" /> : <ChevronLeft className="h-3.5 w-3.5" />}
           </button>
         </div>
-        <div className="flex-1 bg-slatey-850/40">
+        <div className="kubi-workspace flex-1">
           <Topbar />
           <main className="px-8 py-6">
-            <div className="rounded-2xl border border-slatey-800/80 bg-slatey-850/70 p-6 shadow-panel">
+            <div className="kubi-panel rounded-2xl p-6">
               {children ?? <Outlet />}
             </div>
           </main>

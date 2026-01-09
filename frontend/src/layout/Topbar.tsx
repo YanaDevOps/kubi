@@ -35,15 +35,15 @@ export default function Topbar() {
   }, [data?.namespace, setNamespace, userSet]);
 
   const status = data?.ok ? "Healthy" : "Unknown";
-  const statusClass = data?.ok ? "bg-emerald-500/20 text-emerald-300" : "bg-slatey-800 text-slatey-400";
+  const statusClass = data?.ok ? "kubi-chip kubi-chip-status" : "kubi-chip kubi-chip-muted";
 
   return (
-    <header className="flex items-center justify-between border-b border-slatey-800/80 bg-slatey-900/80 px-8 py-4">
+    <header className="kubi-topbar flex items-center justify-between border-b border-slatey-800/80 px-8 py-4">
       <div className="flex items-center gap-4">
-        <div className="rounded-full bg-slatey-800 px-3 py-1 text-xs text-slatey-300">
+        <div className="kubi-chip rounded-full px-3 py-1 text-xs text-slatey-300">
           Context: {data?.context || "default"}
         </div>
-        <div className="flex items-center gap-2 rounded-full bg-slatey-800 px-3 py-1 text-xs text-slatey-300">
+        <div className="kubi-chip flex items-center gap-2 rounded-full px-3 py-1 text-xs text-slatey-300">
           <span>Namespace:</span>
           <select
             className="bg-transparent text-slate-100 focus:outline-none"
@@ -65,7 +65,7 @@ export default function Topbar() {
           API: {status}
         </div>
         {data?.uptimeSeconds ? (
-          <div className="rounded-full bg-slatey-800 px-3 py-1 text-xs text-slatey-300">
+          <div className="kubi-chip rounded-full px-3 py-1 text-xs text-slatey-300">
             Uptime: {formatUptime(data.uptimeSeconds)}
           </div>
         ) : null}
@@ -77,7 +77,7 @@ export default function Topbar() {
           onChange={setLabelSelector}
           placeholder="Label selector (app=foo)"
         />
-        <button className="rounded-lg border border-slatey-800 px-3 py-2 text-xs uppercase tracking-widest text-slatey-400 hover:text-slate-200">
+        <button className="kubi-button-primary px-4 py-2 text-xs">
           Settings
         </button>
       </div>
