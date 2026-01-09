@@ -141,17 +141,13 @@ pre {
 
 .nav-group-button {
   height: 48px;
-  padding: 14px 18px;
-  border-radius: 14px;
-  font-size: 15px;
-  font-weight: 500;
+  padding: 12px 14px;
+  border-radius: 16px;
   color: rgba(245, 247, 255, 0.55);
   background: transparent;
   border: 1px solid transparent;
   box-shadow: none;
-  backdrop-filter: blur(6px);
-  transition: all 0.25s ease;
-  cursor: pointer;
+  backdrop-filter: blur(12px);
 }
 
 .nav-group-button:not(.nav-group-active):hover {
@@ -162,12 +158,16 @@ pre {
 
 .nav-group-active {
   position: relative;
-  background: transparent;
-  color: #0fffd0;
-  border: 1px solid rgba(46, 230, 166, 0.9);
-  box-shadow:
-    0 0 36px rgba(46, 230, 166, 0.65),
-    inset 0 0 22px rgba(46, 230, 166, 0.35);
+  background: radial-gradient(
+    circle at 98% 98%,
+    rgba(46, 230, 166, 0.28) 0%,
+    rgba(46, 230, 166, 0.12) 30%,
+    rgba(46, 230, 166, 0.04) 50%,
+    rgba(46, 230, 166, 0) 68%
+  );
+  color: #f5f7ff;
+  border: 1px solid transparent;
+  box-shadow: none;
 }
 
 .nav-group-active .nav-icon {
@@ -222,6 +222,32 @@ pre {
   text-shadow: 0 0 8px rgba(46, 230, 166, 0.35);
 }
 
+.nav-group-active::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 16px;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.4) 18%,
+      rgba(255, 255, 255, 0) 45%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.4) 18%,
+      rgba(255, 255, 255, 0) 45%
+    );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
 
 .landing-shell {
   min-height: 100vh;
