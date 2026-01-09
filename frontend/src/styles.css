@@ -142,7 +142,7 @@ pre {
 .nav-group-button {
   height: 48px;
   padding: 12px 14px;
-  border-radius: 24px;
+  border-radius: 16px;
   color: rgba(245, 247, 255, 0.55);
   background: transparent;
   border: 1px solid transparent;
@@ -159,7 +159,7 @@ pre {
 .nav-group-active {
   position: relative;
   background: radial-gradient(
-    circle at bottom right,
+    circle at 95% 95%,
     rgba(46, 230, 166, 0.28) 0%,
     rgba(46, 230, 166, 0.12) 45%,
     rgba(46, 230, 166, 0.04) 70%,
@@ -227,7 +227,7 @@ pre {
   position: absolute;
   inset: 0;
   padding: 1px;
-  border-radius: 24px;
+  border-radius: 16px;
   background:
     radial-gradient(
       circle at top left,
