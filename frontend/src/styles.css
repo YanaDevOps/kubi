@@ -31,7 +31,7 @@ pre {
 
 .landing-shell {
   min-height: 100vh;
-  background: radial-gradient(circle at 15% 20%, #1a1f23 0%, #111316 55%, #0b0c0e 100%);
+  background: radial-gradient(circle at 20% 10%, #1b1f25 0%, #111316 55%, #0b0c0e 100%);
   position: relative;
   overflow: hidden;
 }
@@ -40,17 +40,17 @@ pre {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(transparent 94%, rgba(255, 255, 255, 0.03) 100%),
-    linear-gradient(90deg, transparent 94%, rgba(255, 255, 255, 0.03) 100%);
+    linear-gradient(transparent 94%, rgba(255, 255, 255, 0.02) 100%),
+    linear-gradient(90deg, transparent 94%, rgba(255, 255, 255, 0.02) 100%);
   background-size: 120px 120px;
-  opacity: 0.18;
+  opacity: 0.16;
   pointer-events: none;
 }
 
 .landing-ambient {
   position: absolute;
-  width: 620px;
-  height: 620px;
+  width: 720px;
+  height: 720px;
   border-radius: 999px;
   filter: blur(110px);
   opacity: 0.35;
@@ -58,158 +58,157 @@ pre {
 }
 
 .landing-ambient--left {
-  top: -180px;
-  left: -160px;
-  background: radial-gradient(circle, rgba(53, 210, 171, 0.35), transparent 60%);
+  top: -220px;
+  left: -180px;
+  background: radial-gradient(circle, rgba(73, 95, 190, 0.28), transparent 60%);
 }
 
 .landing-ambient--right {
-  top: -120px;
-  right: -200px;
-  background: radial-gradient(circle, rgba(132, 140, 146, 0.35), transparent 60%);
+  top: -260px;
+  right: -220px;
+  background: radial-gradient(circle, rgba(46, 204, 172, 0.18), transparent 60%);
 }
 
-.landing-ambient--bottom {
-  bottom: -220px;
-  left: 10%;
-  width: 720px;
-  height: 720px;
-  background: radial-gradient(circle, rgba(53, 210, 171, 0.22), transparent 65%);
-}
-
-.landing-orbit {
-  position: absolute;
-  top: 52%;
-  left: 50%;
-  width: 740px;
-  height: 740px;
-  border-radius: 999px;
-  border: 1px solid rgba(53, 210, 171, 0.12);
-  transform: translate(-50%, -50%);
-  opacity: 0.35;
-  pointer-events: none;
-}
-
-.landing-orbit--inner {
-  width: 520px;
-  height: 520px;
-  border-color: rgba(255, 255, 255, 0.08);
-  opacity: 0.4;
-}
-
-.landing-stage {
+.landing-scene {
   position: relative;
   z-index: 2;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 120px 24px 140px;
-  text-align: center;
+  padding: 120px 24px;
+}
+
+.landing-frame {
+  position: relative;
+  width: min(980px, 92vw);
+  padding: 72px 70px 84px;
+  border-radius: 40px;
+  background: linear-gradient(160deg, rgba(18, 20, 24, 0.92) 0%, rgba(10, 12, 15, 0.96) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 140px rgba(7, 9, 12, 0.7);
+  overflow: hidden;
+}
+
+.landing-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 10%, rgba(53, 88, 200, 0.2), transparent 60%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.landing-arc {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 560px;
+  height: 280px;
+  border-radius: 999px 999px 0 0;
+  transform: translateX(-50%);
+  border: 1px solid rgba(84, 112, 220, 0.25);
+  box-shadow: 0 0 80px rgba(84, 112, 220, 0.25);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.landing-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.landing-logo {
+  height: 46px;
+  width: auto;
+  filter: drop-shadow(0 0 18px rgba(100, 140, 220, 0.35));
 }
 
 .landing-hero {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
-  padding: 72px 64px;
-  max-width: 860px;
-  border-radius: 36px;
-  background: linear-gradient(160deg, rgba(22, 25, 28, 0.9) 0%, rgba(13, 15, 17, 0.95) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 30px 120px rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(10px);
+  text-align: center;
+  gap: 24px;
 }
 
-.landing-eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.32em;
+.landing-font {
+  font-family: "VT323", "Rubik", system-ui, sans-serif;
+}
+
+.landing-descriptor {
+  font-size: 14px;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: rgba(207, 220, 219, 0.72);
+  color: rgba(205, 214, 220, 0.7);
 }
 
-.landing-wordmark {
-  width: min(640px, 86vw);
-  height: clamp(140px, 20vw, 220px);
-  background: linear-gradient(110deg, #2a3333 0%, #35d2ab 38%, #c0c7c4 70%, #35d2ab 100%);
-  background-size: 220% 100%;
-  animation: shimmer 16s ease-in-out infinite;
-  -webkit-mask-image: url("/branding/wordmark.png");
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  -webkit-mask-size: contain;
-  mask-image: url("/branding/wordmark.png");
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: contain;
-  filter: drop-shadow(0 0 36px rgba(53, 210, 171, 0.32));
+.landing-title {
+  font-size: clamp(64px, 14vw, 132px);
+  letter-spacing: 0.18em;
+  margin: 0;
+  background: linear-gradient(120deg, #4f46e5 0%, #2dd4bf 50%, #3b82f6 100%);
+  background-size: 200% 100%;
+  animation: shimmer 20s ease-in-out infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 40px rgba(60, 130, 220, 0.4);
 }
 
 .landing-copy {
-  max-width: 640px;
-  color: rgba(221, 228, 231, 0.75);
-  font-size: 15px;
-  line-height: 1.8;
+  max-width: 560px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(212, 221, 228, 0.72);
 }
 
-.landing-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+.landing-button {
+  font-family: "Roboto", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.28em;
 }
 
 .landing-cta {
-  border-radius: 16px;
-  border: 1px solid rgba(53, 210, 171, 0.35);
-  background: rgba(53, 210, 171, 0.16);
-  padding: 14px 40px;
-  font-size: 12px;
-  font-weight: 600;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  padding: 14px 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(62, 201, 211, 0.4);
+  background: linear-gradient(120deg, rgba(90, 74, 220, 0.7), rgba(46, 212, 191, 0.7), rgba(59, 130, 246, 0.7));
+  background-size: 200% 100%;
+  animation: shimmer 22s ease-in-out infinite;
+  color: #effbff;
   text-transform: uppercase;
-  letter-spacing: 0.28em;
-  color: #c8f1e4;
-  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+  font-size: 12px;
+  box-shadow: 0 0 30px rgba(60, 130, 220, 0.35);
+  transition: box-shadow 180ms ease, transform 180ms ease;
 }
 
 .landing-cta:hover {
-  background: rgba(53, 210, 171, 0.22);
-  border-color: rgba(53, 210, 171, 0.5);
-  color: #e7fff7;
-}
-
-.landing-meta {
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(191, 200, 203, 0.65);
-}
-
-.landing-base {
-  margin-top: 48px;
-  width: min(520px, 70vw);
-  height: 120px;
-  border-radius: 999px;
-  background: radial-gradient(ellipse, rgba(53, 210, 171, 0.2), transparent 70%);
-  filter: blur(30px);
-  opacity: 0.8;
+  box-shadow: 0 0 42px rgba(60, 190, 200, 0.5);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
-  .landing-hero {
-    padding: 56px 32px;
+  .landing-frame {
+    padding: 56px 32px 64px;
   }
 
-  .landing-orbit {
-    width: 520px;
-    height: 520px;
+  .landing-logo {
+    height: 40px;
   }
 
-  .landing-orbit--inner {
-    width: 360px;
-    height: 360px;
+  .landing-descriptor {
+    font-size: 12px;
   }
 }
 
