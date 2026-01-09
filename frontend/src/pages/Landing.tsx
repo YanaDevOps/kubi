@@ -28,6 +28,11 @@ export default function Landing() {
         <Link to="/app" className="landing-cta landing-button">
           TEST MVP
         </Link>
+        <div className="landing-benefits">
+          <span>Read-only by design</span>
+          <span>Local-first security</span>
+          <span>Instant topology clarity</span>
+        </div>
       </main>
     </div>
   );
