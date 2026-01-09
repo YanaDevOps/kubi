@@ -28,3 +28,32 @@ pre {
 .font-landing {
   font-family: "Space Grotesk", "Rubik", system-ui, sans-serif;
 }
+
+.landing-wordmark {
+  width: min(460px, 80vw);
+  height: clamp(80px, 12vw, 140px);
+  background: linear-gradient(110deg, #1f2a2a 0%, #35d2ab 45%, #a7b3b1 70%, #35d2ab 100%);
+  background-size: 200% 100%;
+  animation: shimmer 10s ease-in-out infinite;
+  -webkit-mask-image: url("/branding/wordmark.png");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-image: url("/branding/wordmark.png");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  filter: drop-shadow(0 0 18px rgba(53, 210, 171, 0.25));
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
