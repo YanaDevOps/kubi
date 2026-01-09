@@ -5,8 +5,6 @@ import {
   Boxes,
   Braces,
   ChevronDown,
-  ChevronLeft,
-  ChevronRight,
   Circle,
   Database,
   KeyRound,
@@ -82,8 +80,11 @@ const groupDefs = [
 
 const STORAGE_KEY = "kubi.sidebar.groups";
 
-export default function Sidebar() {
-  const [collapsed, setCollapsed] = useState(false);
+type SidebarProps = {
+  collapsed: boolean;
+};
+
+export default function Sidebar({ collapsed }: SidebarProps) {
   const location = useLocation();
 
   const [openGroups, setOpenGroups] = useState<string[]>(() => {
@@ -118,19 +119,16 @@ export default function Sidebar() {
         collapsed ? "w-20" : "w-64"
       }`}
     >
-      <div className={`mb-8 flex items-center justify-between ${collapsed ? "" : "pt-2"}`}>
+      <div className={`mb-8 flex items-center ${collapsed ? "justify-center" : "justify-start pt-2"}`}>
         <img
           src={collapsed ? "/branding/logo-mark.png" : "/branding/logo-lockup.png"}
           alt="KUBI"
-          className={collapsed ? "h-8 w-auto" : "h-12 w-auto drop-shadow-[0_0_18px_rgba(53,210,171,0.2)]"}
+          className={
+            collapsed
+              ? "h-9 w-auto"
+              : "h-16 w-auto drop-shadow-[0_0_20px_rgba(53,210,171,0.25)]"
+          }
         />
-        <button
-          className="rounded-lg border border-slatey-800 p-2 text-slatey-400 hover:text-slate-100"
-          onClick={() => setCollapsed((prev) => !prev)}
-          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-        >
-          {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
-        </button>
       </div>
 
       <nav className="space-y-3 text-sm">
@@ -143,13 +141,11 @@ export default function Sidebar() {
             return (
               <div key={group.id} className="relative group">
                 <button
-                  className={`flex w-full items-center justify-center rounded-lg border border-slatey-800/60 px-3 py-2 transition ${
-                    isActiveGroup
-                      ? "border-accent-info text-accent-info"
-                      : "text-slatey-400 hover:text-slate-100"
+                  className={`nav-group-button flex w-full items-center justify-center rounded-lg border border-slatey-800/60 px-3 py-2 transition ${
+                    isActiveGroup ? "nav-group-active border-accent-info/70 text-accent-info" : ""
                   }`}
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className="nav-icon h-5 w-5" />
                 </button>
                 <div className="pointer-events-none absolute left-full top-0 ml-3 hidden w-56 rounded-xl border border-slatey-800/80 bg-slatey-900/95 p-3 text-sm text-slate-100 shadow-panel group-hover:block">
                   <div className="text-xs uppercase tracking-widest text-slatey-500">{group.label}</div>
@@ -168,10 +164,8 @@ export default function Sidebar() {
           return (
             <div key={group.id} className="space-y-2">
               <button
-                className={`flex w-full items-center justify-between rounded-lg border border-slatey-800/60 px-3 py-2 text-left transition ${
-                  isActiveGroup
-                    ? "border-accent-info text-slate-100"
-                    : "text-slatey-300 hover:text-slate-100"
+                className={`nav-group-button flex w-full items-center justify-between rounded-lg border border-slatey-800/60 px-3 py-2 text-left transition ${
+                  isActiveGroup ? "nav-group-active border-accent-info/70 text-slate-100" : ""
                 }`}
                 onClick={() =>
                   setOpenGroups((prev) =>
@@ -182,7 +176,7 @@ export default function Sidebar() {
                 }
               >
                 <span className="flex items-center gap-3">
-                  <Icon className="h-4 w-4" />
+                  <Icon className="nav-icon h-4 w-4" />
                   <span className="text-xs uppercase tracking-widest">{group.label}</span>
                 </span>
                 <ChevronDown className={`h-4 w-4 transition ${isOpen ? "rotate-180" : ""}`} />
@@ -198,14 +192,12 @@ export default function Sidebar() {
                         end={item.to === "/app"}
                         className={({ isActive }) =>
                           [
-                            "flex items-center gap-3 rounded-lg border-l-2 px-3 py-2 transition",
-                            isActive
-                              ? "border-accent-info bg-slatey-800/70 text-slate-50 shadow-panel"
-                              : "border-transparent text-slatey-400 hover:bg-slatey-800/40 hover:text-slate-100",
+                            "nav-item flex items-center gap-3 rounded-lg border-l-2 border-transparent px-3 py-2 transition",
+                            isActive ? "nav-item-active border-accent-info" : "",
                           ].join(" ")
                         }
                       >
-                        <ItemIcon className="h-4 w-4" />
+                        <ItemIcon className="nav-icon h-4 w-4" />
                         <span>{item.label}</span>
                       </NavLink>
                     );

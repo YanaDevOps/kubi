@@ -1,5 +1,6 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { Outlet } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 
@@ -8,14 +9,25 @@ type LayoutProps = {
 };
 
 export default function Layout({ children }: LayoutProps) {
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
     <div className="min-h-screen text-slate-100">
       <div className="flex">
-        <Sidebar />
-        <div className="flex-1">
+        <div className="relative">
+          <Sidebar collapsed={collapsed} />
+          <button
+            className="absolute top-6 -right-4 rounded-full border border-slatey-800/80 bg-slatey-900/90 p-1.5 text-slatey-500 shadow-panel transition hover:text-slate-100"
+            onClick={() => setCollapsed((prev) => !prev)}
+            aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+          >
+            {collapsed ? <ChevronRight className="h-3.5 w-3.5" /> : <ChevronLeft className="h-3.5 w-3.5" />}
+          </button>
+        </div>
+        <div className="flex-1 bg-slatey-850/40">
           <Topbar />
           <main className="px-8 py-6">
-            <div className="rounded-2xl bg-slatey-900/70 shadow-panel border border-slatey-800/80 p-6">
+            <div className="rounded-2xl border border-slatey-800/80 bg-slatey-850/70 p-6 shadow-panel">
               {children ?? <Outlet />}
             </div>
           </main>

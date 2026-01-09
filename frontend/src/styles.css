@@ -29,6 +29,49 @@ pre {
   font-family: "Space Grotesk", "Rubik", system-ui, sans-serif;
 }
 
+.nav-group-button {
+  color: #b1bac2;
+}
+
+.nav-group-button:hover {
+  color: #f1f5f9;
+  background: rgba(28, 32, 36, 0.4);
+}
+
+.nav-group-active {
+  background: linear-gradient(90deg, rgba(53, 210, 171, 0.16), rgba(28, 32, 36, 0));
+  box-shadow: 0 0 18px rgba(53, 210, 171, 0.12);
+}
+
+.nav-group-active .nav-icon {
+  color: #35d2ab;
+  filter: drop-shadow(0 0 6px rgba(53, 210, 171, 0.35));
+}
+
+.nav-item {
+  color: #9aa3ab;
+}
+
+.nav-item:hover {
+  color: #f1f5f9;
+  background: rgba(28, 32, 36, 0.5);
+}
+
+.nav-item-active {
+  background: linear-gradient(90deg, rgba(53, 210, 171, 0.18), rgba(28, 32, 36, 0));
+  color: #d7f6ee;
+  box-shadow: 0 0 14px rgba(53, 210, 171, 0.16);
+}
+
+.nav-item-active .nav-icon {
+  color: #35d2ab;
+  filter: drop-shadow(0 0 6px rgba(53, 210, 171, 0.35));
+}
+
+.nav-item-active span {
+  text-shadow: 0 0 8px rgba(53, 210, 171, 0.2);
+}
+
 .landing-shell {
   min-height: 100vh;
   background: radial-gradient(circle at 20% 10%, #1b1f25 0%, #111316 55%, #0b0c0e 100%);
@@ -149,8 +192,8 @@ pre {
 }
 
 .landing-title {
-  font-size: clamp(64px, 14vw, 132px);
-  letter-spacing: 0.18em;
+  font-size: clamp(72px, 16vw, 150px);
+  letter-spacing: 0.12em;
   margin: 0;
   background: linear-gradient(120deg, #4f46e5 0%, #2dd4bf 50%, #3b82f6 100%);
   background-size: 200% 100%;
@@ -189,12 +232,12 @@ pre {
   color: #effbff;
   text-transform: uppercase;
   font-size: 12px;
-  box-shadow: 0 0 30px rgba(60, 130, 220, 0.35);
+  box-shadow: 0 0 42px rgba(60, 150, 220, 0.45);
   transition: box-shadow 180ms ease, transform 180ms ease;
 }
 
 .landing-cta:hover {
-  box-shadow: 0 0 42px rgba(60, 190, 200, 0.5);
+  box-shadow: 0 0 54px rgba(60, 200, 210, 0.6);
   transform: translateY(-1px);
 }
 
