@@ -17,14 +17,14 @@ export default function Layout({ children }: LayoutProps) {
         <div className="relative">
           <Sidebar collapsed={collapsed} />
           <button
-            className="absolute top-5 -right-5 z-50 h-10 w-10 rounded-full border border-white/15 bg-[rgba(12,14,20,0.7)] text-white/90 shadow-panel transition hover:border-white/25 hover:bg-[rgba(18,20,26,0.78)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-info/40"
+            className="absolute top-4 -right-4 z-50 h-[30px] w-[30px] rounded-full border border-white/10 bg-slatey-900/95 text-white/90 shadow-panel transition hover:shadow-[0_0_0_1px_rgba(46,230,166,0.35),0_0_12px_rgba(46,230,166,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-info/40"
             onClick={() => setCollapsed((prev) => !prev)}
             aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
             {collapsed ? (
-              <ArrowRight className="mx-auto h-5 w-5" strokeWidth={2.25} />
+              <ArrowRight className="mx-auto h-4 w-4" strokeWidth={2.25} />
             ) : (
-              <ArrowLeft className="mx-auto h-5 w-5" strokeWidth={2.25} />
+              <ArrowLeft className="mx-auto h-4 w-4" strokeWidth={2.25} />
             )}
           </button>
         </div>

@@ -150,7 +150,7 @@ pre {
   backdrop-filter: blur(12px);
 }
 
-.nav-group-button:hover {
+.nav-group-button:not(.nav-group-active):hover {
   color: #e2e8f0;
   background: rgba(255, 255, 255, 0.04);
   border-color: transparent;
@@ -159,11 +159,11 @@ pre {
 .nav-group-active {
   position: relative;
   background:
-    linear-gradient(
-      135deg,
+    radial-gradient(
+      circle at top left,
       rgba(46, 230, 166, 0) 0%,
-      rgba(46, 230, 166, 0.06) 72%,
-      rgba(46, 230, 166, 0.18) 100%
+      rgba(46, 230, 166, 0.10) 45%,
+      rgba(46, 230, 166, 0.28) 100%
     ),
     rgba(12, 14, 20, 0.35);
   color: #f5f7ff;
