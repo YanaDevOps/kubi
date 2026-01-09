@@ -188,6 +188,7 @@ pre {
   background: transparent;
   border-color: transparent;
   box-shadow: none;
+  border-radius: 16px;
 }
 
 .nav-item:hover {
@@ -198,17 +199,17 @@ pre {
 
 .nav-item-active {
   background: linear-gradient(
-    90deg,
-    rgba(53, 210, 171, 0.2),
-    rgba(79, 124, 255, 0.14),
-    rgba(139, 92, 246, 0.1),
-    rgba(255, 255, 255, 0)
+    135deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(53, 210, 171, 0.18) 55%,
+    rgba(79, 124, 255, 0.14) 78%,
+    rgba(139, 92, 246, 0.12) 100%
   );
   color: var(--kubi-teal);
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
   box-shadow:
-    inset 1px 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    inset 1px 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .nav-item-active .nav-icon {

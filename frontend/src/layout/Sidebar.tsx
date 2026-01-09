@@ -188,7 +188,7 @@ export default function Sidebar({ collapsed }: SidebarProps) {
                         end={item.to === "/app"}
                         className={({ isActive }) =>
                           [
-                            "nav-item flex items-center gap-3 rounded-lg border-l-2 border-transparent px-3 py-2 transition",
+                            "nav-item flex items-center gap-3 rounded-lg border-l-2 border-transparent px-5 py-2 transition",
                             isActive ? "nav-item-active border-accent-info" : "",
                           ].join(" ")
                         }
