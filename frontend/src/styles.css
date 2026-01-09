@@ -161,7 +161,10 @@ pre {
     rgba(255, 255, 255, 0)
   );
   color: #e8fbf6;
-  box-shadow: none;
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.24),
+    inset -1px -1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .nav-group-active .nav-icon {
@@ -208,8 +211,8 @@ pre {
   color: var(--kubi-teal);
   border-color: rgba(255, 255, 255, 0.16);
   box-shadow:
-    inset 1px 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    inset 1px 1px 0 rgba(255, 255, 255, 0.24),
+    inset -1px -1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .nav-item-active .nav-icon {
