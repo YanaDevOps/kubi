@@ -206,35 +206,39 @@ export default function Sidebar({ collapsed }: SidebarProps) {
           );
         })}
       </nav>
-      <div className={`mt-auto pt-6 ${collapsed ? "flex justify-center" : ""}`}>
+      <div className="mt-auto pt-6">
         <div
-          className={`flex items-center gap-3 text-sm text-slatey-300 ${
-            collapsed ? "justify-center" : ""
+          className={`flex w-full items-center gap-3 text-sm text-slatey-300 ${
+            collapsed ? "justify-center" : "justify-between px-3.5"
           }`}
         >
-          <Moon className="h-4 w-4" />
-          {!collapsed ? <span>Dark Mode</span> : null}
-          <div
-            role="switch"
-            aria-checked={darkMode}
-            tabIndex={0}
-            className={`relative h-5 w-10 cursor-pointer rounded-full transition ${
-              darkMode ? "bg-[#2EE6A6]/70" : "bg-white/15"
-            } ${collapsed ? "hidden" : ""}`}
-            onClick={() => setDarkMode((prev) => !prev)}
-            onKeyDown={(event) => {
-              if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                setDarkMode((prev) => !prev);
-              }
-            }}
-          >
-            <span
-              className={`absolute top-0.5 h-4 w-4 rounded-full bg-slatey-900 transition ${
-                darkMode ? "left-5" : "left-1"
+          <span className="flex items-center gap-3">
+            <Moon className="h-4 w-4" />
+            {!collapsed ? <span>Dark Mode</span> : null}
+          </span>
+          {!collapsed ? (
+            <div
+              role="switch"
+              aria-checked={darkMode}
+              tabIndex={0}
+              className={`relative h-5 w-10 cursor-pointer rounded-full transition ${
+                darkMode ? "bg-[#2EE6A6]/70" : "bg-white/15"
               }`}
-            />
-          </div>
+              onClick={() => setDarkMode((prev) => !prev)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setDarkMode((prev) => !prev);
+                }
+              }}
+            >
+              <span
+                className={`absolute top-0.5 h-4 w-4 rounded-full bg-slatey-900 transition ${
+                  darkMode ? "left-5" : "left-1"
+                }`}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </aside>
