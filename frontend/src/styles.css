@@ -161,6 +161,7 @@ pre {
     rgba(255, 255, 255, 0)
   );
   color: #e8fbf6;
+  box-shadow: none;
 }
 
 .nav-group-active .nav-icon {
