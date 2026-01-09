@@ -273,7 +273,7 @@ pre {
   filter: blur(110px);
   opacity: 0.38;
   mix-blend-mode: screen;
-  animation: blob-drift 6s ease-in-out infinite;
+  animation: blob-drift 4s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -651,7 +651,7 @@ pre {
 
 .landing-benefits span:hover {
   color: rgba(232, 244, 250, 0.95);
-  text-shadow: 0 0 18px rgba(79, 124, 255, 0.4);
+  text-shadow: 0 0 18px rgba(53, 210, 171, 0.4);
 }
 
 @media (max-width: 768px) {
