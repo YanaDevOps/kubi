@@ -83,11 +83,12 @@ const STORAGE_KEY = "kubi.sidebar.groups";
 
 type SidebarProps = {
   collapsed: boolean;
+  darkMode: boolean;
+  onToggleDarkMode: () => void;
 };
 
-export default function Sidebar({ collapsed }: SidebarProps) {
+export default function Sidebar({ collapsed, darkMode, onToggleDarkMode }: SidebarProps) {
   const location = useLocation();
-  const [darkMode, setDarkMode] = useState(true);
 
   const [openGroupId, setOpenGroupId] = useState<string>(() => {
     if (typeof window === "undefined") return "cluster";
@@ -220,11 +221,11 @@ export default function Sidebar({ collapsed }: SidebarProps) {
               className={`relative h-5 w-10 cursor-pointer rounded-full transition ${
                 darkMode ? "bg-[#2EE6A6]/70" : "bg-white/15"
               }`}
-              onClick={() => setDarkMode((prev) => !prev)}
+              onClick={onToggleDarkMode}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
-                  setDarkMode((prev) => !prev);
+                  onToggleDarkMode();
                 }
               }}
             >
