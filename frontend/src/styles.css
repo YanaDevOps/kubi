@@ -177,13 +177,13 @@ pre {
 
 .sidebar-logo {
   width: 65%;
-  max-width: 190px;
-  min-width: 140px;
+  max-width: 170px;
+  min-width: 120px;
   height: auto;
 }
 
 .sidebar-logo-collapsed {
-  height: clamp(34px, 4vw, 44px);
+  height: clamp(30px, 3.5vw, 40px);
   width: auto;
 }
 
