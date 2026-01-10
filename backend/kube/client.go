@@ -81,3 +81,45 @@ func New(cfg config.Config) (*Client, error) {
 
 	return &Client{Clientset: clientset, Rest: restConfig, Info: info}, nil
 }
+
+func NewFromRaw(rawBytes []byte, context string) (*Client, error) {
+	raw, err := clientcmd.Load(rawBytes)
+	if err != nil {
+		return nil, fmt.Errorf("kubeconfig: %w", err)
+	}
+
+	if context == "" {
+		context = raw.CurrentContext
+	}
+	if context == "" {
+		return nil, fmt.Errorf("kubeconfig has no current context")
+	}
+
+	overrides := &clientcmd.ConfigOverrides{CurrentContext: context}
+	clientConfig := clientcmd.NewNonInteractiveClientConfig(*raw, context, overrides, nil)
+	restConfig, err := clientConfig.ClientConfig()
+	if err != nil {
+		return nil, fmt.Errorf("kubeconfig: %w", err)
+	}
+
+	info := Info{Context: context}
+	if ctx, ok := raw.Contexts[context]; ok {
+		if cluster, ok := raw.Clusters[ctx.Cluster]; ok {
+			info.ClusterURL = cluster.Server
+		}
+	}
+
+	if ns, _, nsErr := clientConfig.Namespace(); nsErr == nil && ns != "" {
+		info.Namespace = ns
+	}
+	if info.Namespace == "" {
+		info.Namespace = "all"
+	}
+
+	clientset, err := kubernetes.NewForConfig(restConfig)
+	if err != nil {
+		return nil, fmt.Errorf("clientset: %w", err)
+	}
+
+	return &Client{Clientset: clientset, Rest: restConfig, Info: info}, nil
+}

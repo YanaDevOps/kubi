@@ -389,8 +389,63 @@ async function request<T>(path: string): Promise<T> {
   return res.json() as Promise<T>;
 }
 
+async function requestJson<T>(path: string, init: RequestInit): Promise<T> {
+  const res = await fetch(path, {
+    ...init,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      ...(init.headers ?? {}),
+    },
+  });
+
+  if (!res.ok) {
+    let message = `Request failed: ${res.status}`;
+    try {
+      const payload = (await res.json()) as { error?: string };
+      if (payload?.error) {
+        message = payload.error;
+      }
+    } catch {}
+    throw new Error(message);
+  }
+
+  return res.json() as Promise<T>;
+}
+
 export function fetchOverview() {
   return request<Overview>("/api/overview");
+}
+
+export type KubeconfigContexts = {
+  contexts: string[];
+  currentContext: string;
+};
+
+export type KubeconfigTestResult = {
+  ok: boolean;
+  context: string;
+  clusterUrl?: string;
+  serverVersion?: string;
+  error?: string;
+};
+
+export function fetchKubeconfigContexts() {
+  return request<KubeconfigContexts>("/api/kubeconfig/contexts");
+}
+
+export function saveKubeconfig(payload: { kubeconfig: string; context?: string }) {
+  return requestJson<KubeconfigContexts>("/api/kubeconfig", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export function testKubeconfig(payload: { context?: string }) {
+  return requestJson<KubeconfigTestResult>("/api/kubeconfig/test", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
 }
 
 export function fetchHealth() {

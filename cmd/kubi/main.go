@@ -11,7 +11,6 @@ import (
 	"github.com/YanaDevOps/kubi/backend/config"
 	"github.com/YanaDevOps/kubi/backend/kube"
 	"github.com/YanaDevOps/kubi/backend/server"
-	apiextclient "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset"
 )
 
 const version = "dev"
@@ -25,19 +24,8 @@ func main() {
 	logger := newLogger(cfg.LogLevel)
 	started := time.Now().UTC()
 
-	kubeClient, err := kube.New(cfg)
-	if err != nil {
-		logger.Error("kube client error", "err", err)
-		os.Exit(1)
-	}
-
-	extClient, err := apiextclient.NewForConfig(kubeClient.Rest)
-	if err != nil {
-		logger.Error("apiext client error", "err", err)
-		os.Exit(1)
-	}
-
-	handler := server.NewRouter(cfg, version, started, kubeClient, extClient)
+	store := kube.NewStore(cfg)
+	handler := server.NewRouter(cfg, version, started, store)
 	srv := server.New(cfg, logger, handler)
 
 	go func() {
